@@ -43,7 +43,7 @@ class PermisoController extends Controller
             'nombre' => 'required|max:50|unique:permisos,nombre',
             'slug' => 'required|max:50|unique:permisos,slug'
         ]);
-        $permiso['slug'] = Str::slug($permiso['nombre']);
+        //$permiso['slug'] = Str::slug($permiso['nombre']);
         //dd($permiso);
         Permiso::create($permiso);
         return redirect()->route('permiso.crear')->with('mensaje', 'El menu fue almacenado exitosamente');

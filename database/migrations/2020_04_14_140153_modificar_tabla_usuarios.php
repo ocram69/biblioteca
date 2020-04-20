@@ -26,7 +26,7 @@ class ModificarTablaUsuarios extends Migration
     public function down()
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->string('email', 100)->unique()->after();
+            $table->dropColumn('email');
         });
     }
 }

@@ -14,15 +14,15 @@ class CrearTablaMenus extends Migration
     public function up()
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->engine='InnoDB';
+            $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
             $table->id();
-            $table->unsignedBigInteger('menu_id')->default(0);
             $table->string('nombre', 50);
             $table->string('url', 100);
-            $table->unsignedBigInteger('orden')->default(0);
             $table->string('icono', 50)->nullable();
+            $table->unsignedBigInteger('menu_id')->default(0);
+            $table->unsignedBigInteger('orden')->default(0);
             $table->timestamps();
         });
     }

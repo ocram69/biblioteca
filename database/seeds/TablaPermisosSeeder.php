@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin\Permiso;
 use Illuminate\Database\Seeder;
 
 class TablaPermisosSeeder extends Seeder
@@ -11,6 +12,16 @@ class TablaPermisosSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Admin\Permiso::class,50)->create();
+        $permisos = [
+            ['nombre' => 'Listar Libros'],
+            ['nombre' => 'Crear Libro'],
+            ['nombre' => 'Ver Libro'],
+            ['nombre' => 'Editar Libro'],
+            ['nombre' => 'Eliminar Libro'],
+            ['nombre' => 'Prestar Libro'],
+        ];
+        foreach ($permisos as $permiso) {
+            Permiso::create($permiso);
+        }
     }
 }

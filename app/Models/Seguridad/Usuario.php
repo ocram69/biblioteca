@@ -27,7 +27,7 @@ class Usuario extends Authenticatable
      */
     public function roles()
     {
-        return $this->belongsToMany(Rol::class, 'rol_usuario');
+        return $this->belongsToMany(Rol::class, 'rol_usuario')->withTimestamps();
     }
     /**
      * Almaceno informacion del rol

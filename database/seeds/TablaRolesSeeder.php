@@ -12,15 +12,6 @@ class TablaRolesSeeder extends Seeder
      */
     public function run()
     {
-        $roles = [
-            'Administrador',
-            // 'Editor',
-            // 'Supervisor'
-        ];
-        foreach ($roles as $llave => $valor) {
-            Rol::create([
-                'nombre' => $valor
-            ]);
-        }
+        Rol::create(['nombre' => 'Administrador']);
     }
 }

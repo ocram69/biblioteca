@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Seguridad\Usuario;
 use Illuminate\Support\Facades\DB;
 
 class TablaUsuarioSeeder extends Seeder
@@ -15,30 +16,12 @@ class TablaUsuarioSeeder extends Seeder
         /**
          * Usuario Administrador
          */
-        DB::table('usuarios')->insert([
+        $usuario = Usuario::create([
             'nombre'    => 'administrador',
-            'email'     =>  'admin@oroestiba.com',
+            'email'     => 'admin@oroestiba.com',
             'usuario'   => 'admin',
-            'password'  => bcrypt('12345')
+            'password'  => '12345'
         ]);
-        // DB::table('rol_usuario')->insert([
-        //     'rol_id'    => 1,
-        //     'usuario_id' => 1,
-        //     'estado' => 1
-        // ]);
-        // /**
-        //  * Usuario >Editor
-        //  */
-        // DB::table('usuarios')->insert([
-        //     'nombre'    => 'editor',
-        //     'usuario'   => 'editor',
-        //     'email'     =>  'editor@oroestimba.com',
-        //     'password'  => bcrypt('12345')
-        // ]);
-        // DB::table('rol_usuario')->insert([
-        //     'rol_id'    => 2,
-        //     'usuario_id' => 2,
-        //     'estado' => 1
-        // ]);
+        $usuario->roles()->attach(1);
     }
 }

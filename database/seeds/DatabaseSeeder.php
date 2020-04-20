@@ -16,13 +16,16 @@ class DatabaseSeeder extends Seeder
             'roles',
             'permisos',
             'usuarios',
-            'rol_usuario'
+            'rol_usuario',
+            'menus',
+            'menu_rol',
         ]);
         // $this->call(UsersTableSeeder::class);
         $this->call([
             TablaRolesSeeder::class,
             TablaPermisosSeeder::class,
-            TablaUsuarioSeeder::class
+            TablaUsuarioSeeder::class,
+            TablaMenuSeeder::class,
         ]);
     }
 

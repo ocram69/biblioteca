@@ -11,7 +11,7 @@ class Menu extends Model
     protected $fillable = ['nombre', 'url', 'icono'];
     // protected $guarded = ['id'];
     /*si no existen los campos timestate*/
-    public $timestamps = false;
+    //public $timestamps = false;
 
     public function getMenus($menusPorRol)
     {
@@ -83,6 +83,6 @@ class Menu extends Model
     /*RELACION DE UNO A MUCHOS CON ROLES*/
     public function roles()
     {
-        return $this->belongsToMany(Rol::class, 'menu_rol');
+        return $this->belongsToMany(Rol::class, 'menu_rol')->withTimestamps();
     }
 }

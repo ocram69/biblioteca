@@ -3,7 +3,7 @@
     <div class="form-group row">
         <label for="nombre" class="col-sm-2 col-form-label col-form-label-sm requerido">Nombre</label>
         <div class="col-sm-10">
-        <input type="text" class="form-control form-control-sm @error('nombre')is-invalid @enderror"  name="nombre" id="nombre" value="{{old('nombre',$usuario->nombre)}}"  maxlength="50">
+            <input type="text" class="form-control form-control-sm @error('nombre')is-invalid @enderror"  name="nombre" id="nombre" value="{{old('nombre',$usuario->nombre)}}"  maxlength="50">
             @error('nombre')
                 <div class="invalid-feedback">{{$message}}</div>
             @enderror

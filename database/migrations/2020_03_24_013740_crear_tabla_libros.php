@@ -14,7 +14,7 @@ class CrearTablaLibros extends Migration
     public function up()
     {
         Schema::create('libros', function (Blueprint $table) {
-            $table->engine='InnoDB';
+            $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
             $table->id();
@@ -23,7 +23,7 @@ class CrearTablaLibros extends Migration
             $table->string('autor', 100);
             $table->unsignedTinyInteger('cantidad');
             $table->string('editorial', 50)->nullable();
-            $table->string('foto', 100)->nullable();
+            $table->string('foto', 100)->nullable()->default('defaul.png');
             $table->timestamps();
         });
     }

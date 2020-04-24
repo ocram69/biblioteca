@@ -11,7 +11,7 @@
             <div class="card-header bg-light">
                 <h3 class="card-title">Modificar Usuario </h3>
             </div>
-            <form  method="post" action="{{route('usuario.actualizar',$usuario)}}" id="form-usuario" autocomplete="off">
+            <form  method="post" action="{{route('usuario.actualizar',['usuario'=>$usuario])}}" id="form-usuario" autocomplete="off">
                 @method('put')
                 @include('admin.usuarios.form',['btn_text'=>'Actualizar'])
             </form>

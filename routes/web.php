@@ -78,10 +78,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/libros',                 'LibroController@index')->name('libro.index');
     Route::get('/libros/crear',           'LibroController@crear')->name('libro.crear');
     Route::post('/libros',                'LibroController@guardar')->name('libro.guardar');
-    Route::get('/libros/{libro}',         'LibroController@ver')->where('libro', '[0-9]+')->name('libro.ver');
+    Route::post('/libros/{libro}',         'LibroController@ver')->where('libro', '[0-9]+')->name('libro.ver');
     Route::get('/libros/{libro}/editar',  'LibroController@modificar')->where('libro', '[0-9]+')->name('libro.modificar');
     Route::put('/libros/{libro}',         'LibroController@actualizar')->where('libro', '[0-9]+')->name('libro.actualizar');
     Route::delete('/libros/{libro}',      'LibroController@eliminar')->where('libro', '[0-9]+')->name('libro.eliminar');
+    Route::delete('/libros_imagen/{libro}', 'LibroController@eliminar_imagen')->where('libro', '[0-9]+')->name('libro.eliminar_imagen');
 });
 
 //Auth::routes();

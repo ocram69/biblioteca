@@ -128,20 +128,24 @@ class UsuarioController extends Controller
         //     $usuario->roles()->detach();
         //     $usuario->delete();
         // });
-        DB::beginTransaction();
-        try {
-            $usuario->roles()->detach();
-            $usuario->delete();
-            DB::commit();
-            return response()->json(['mensaje' => 'ok']);
-        } catch (\Exception $e) {
-            DB::rollback();
-            return response()->json(['mensaje' => 'error']);
-            throw $e;
-        } catch (\Throwable $e) {
-            DB::rollback();
-            return response()->json(['mensaje' => 'error']);
-            throw $e;
+        if (request()->ajax()) {
+            DB::beginTransaction();
+            try {
+                $usuario->roles()->detach();
+                $usuario->delete();
+                DB::commit();
+                return response()->json(['mensaje' => 'ok']);
+            } catch (\Exception $e) {
+                DB::rollback();
+                return response()->json(['mensaje' => 'error']);
+                throw $e;
+            } catch (\Throwable $e) {
+                DB::rollback();
+                return response()->json(['mensaje' => 'error']);
+                throw $e;
+            }
+        } else {
+            abort(404);
         }
     }
 }

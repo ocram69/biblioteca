@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Font Awesome Icons -->
         <link rel="stylesheet" href="{{asset("assets/$theme/plugins/fontawesome-free/css/all.min.css")}}">
 
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        {{-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> --}}
         <!-- Theme style  toastr-->
         <link rel="stylesheet" href="{{asset("assets/adminLte/plugins/toastr/toastr.min.css")}}">
         <!-- Theme style  sweetalert2-->
@@ -84,8 +84,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
      <script src="{{asset("assets/pages/js/funciones.js")}}"></script>
     <!-- Scripts todas las paginas-->
     <script src="{{asset("assets/pages/js/pages.js")}}"></script>
-    <!-- Scripts todas las paginas index para eliminar-->
-    <script src="{{asset("assets/pages/js/index.js")}}"></script>
     <!-- Scripts por pagina-->
     @yield('scripts')
     </body>

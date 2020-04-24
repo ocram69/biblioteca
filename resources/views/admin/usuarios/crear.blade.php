@@ -20,6 +20,6 @@
 @endsection
 @section('scripts')
 <script src="{{asset("assets/adminLte/plugins/select2/js/select2.min.js")}}"></script>
-    <script src="{{asset("assets/pages/admin/usuarios/js/crear.js")}}"></script>
+<script src="{{asset("assets/pages/admin/usuarios/js/crear.js")}}"></script>
     
 @endsection

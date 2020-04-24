@@ -42,5 +42,6 @@
     </div>    
 @endsection
 @section('scripts')
-    
+     <!-- Scripts todas las paginas index para eliminar-->
+     <script src="{{asset("assets/pages/js/index.js")}}"></script>
 @endsection

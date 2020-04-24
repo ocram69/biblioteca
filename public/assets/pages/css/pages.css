@@ -3,6 +3,14 @@ label.requerido:after {
     content: "*";
     color: #e73d4a;
 }
+.invalid-imagen {
+    /* display: none;
+    width: 100%;
+    margin-top: 0.25rem; */
+    font-size: 80%;
+    color: #dc3545;
+}
+
 /* para los botones de editar eliminar*/
 .btn-accion-tabla {
     cursor: pointer;
@@ -20,4 +28,7 @@ label.requerido:after {
 /*ancho de columna de botones*/
 .width70 {
     width: 70px !important;
+}
+.width80 {
+    width: 80px !important;
 }

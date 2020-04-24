@@ -84,7 +84,7 @@ class PermisoController extends Controller
             'nombre' => ['required', 'max:50', Rule::unique('permisos')->ignore($permiso->id)],
             'slug' => ['required', 'max:50', Rule::unique('permisos')->ignore($permiso->id)]
         ]);
-        $permisoValidado['slug'] = Str::slug($permisoValidado['nombre']);
+        //$permisoValidado['slug'] = Str::slug($permisoValidado['nombre']);
         $permiso->update($permisoValidado);
         return redirect()->route('permiso.index')->with('mensaje', 'El permiso fue actualizado exitosamente');
     }

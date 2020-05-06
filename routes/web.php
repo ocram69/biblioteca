@@ -37,26 +37,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/menus',                  'MenuController@index')->name('menu.index');
     Route::get('/menus/crear',            'MenuController@crear')->name('menu.crear');
     Route::post('/menus',                 'MenuController@guardar')->name('menu.guardar');
-    //Route::get('/menus/{menu}', 'MenuController@ver')->where('menu', '[0-9]+')->name('menu.ver');
     Route::get('/menus/{menu}/editar',    'MenuController@modificar')->where('menu', '[0-9]+')->name('menu.modificar');
     Route::put('/menus/{menu}',           'MenuController@actualizar')->where('menu', '[0-9]+')->name('menu.actualizar');
     Route::delete('/menus/{menu}',        'MenuController@eliminar')->where('menu', '[0-9]+')->name('menu.eliminar');
     Route::match(['get', 'post'],         '/menus/guardar-orden', 'MenuController@guardarOrden')->name('menu.guardarOrden');
-    //Route::post     ('/menus/guardar-orden', 'MenuController@guardarOrden')->name('menu.guardarOrden');
     /*RUTAS DEL ROLES*/
     Route::get('/roles',                  'RolController@index')->name('rol.index');
     Route::get('/roles/crear',            'RolController@crear')->name('rol.crear');
     Route::post('/roles',                 'RolController@guardar')->name('rol.guardar');
-    //Route::get('/roles/{rol}', 'RolController@ver')->where('rol', '[0-9]+')->name('rol.ver');
     Route::get('/roles/{rol}/editar',     'RolController@modificar')->where('rol', '[0-9]+')->name('rol.modificar');
     Route::put('/roles/{rol}',            'RolController@actualizar')->where('rol', '[0-9]+')->name('rol.actualizar');
     Route::delete('/roles/{rol}',         'RolController@eliminar')->where('rol', '[0-9]+')->name('rol.eliminar');
     /*MENU ROL*/
     Route::get('/menus-roles',            'MenuRolController@index')->name('menu-rol.index');
     Route::post('/menus-roles',           'MenuRolController@gestionar')->name('menu-rol.index');
-    /**
-     * PERMISOS
-     */
+    /* PERMISOS*/
     Route::get('/permisos',               'PermisoController@index')->name('permiso.index');
     Route::get('/permisos/crear',         'PermisoController@crear')->name('permiso.crear');
     Route::post('/permisos',              'PermisoController@guardar')->name('permiso.guardar');
@@ -68,21 +63,28 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
      */
     Route::get('/permisos-roles',         'PermisoRolController@index')->name('permisoRol.index');
     Route::post('/permisos-roles',        'PermisoRolController@gestionar')->name('permiso-rol.index');
-    /**
-     * LIBRO
-     */
-    Route::get('/libros', 'LibroController@index')->name('libros.index');
 });
 Route::middleware(['auth'])->group(function () {
+    /*HOME*/
     Route::get('/admin',                  'Admin\AdminController@index')->name('home');
+    /*LIBRO*/
     Route::get('/libros',                 'LibroController@index')->name('libro.index');
     Route::get('/libros/crear',           'LibroController@crear')->name('libro.crear');
     Route::post('/libros',                'LibroController@guardar')->name('libro.guardar');
-    Route::post('/libros/{libro}',         'LibroController@ver')->where('libro', '[0-9]+')->name('libro.ver');
+    Route::post('/libros/{libro}',        'LibroController@ver')->where('libro', '[0-9]+')->name('libro.ver');
     Route::get('/libros/{libro}/editar',  'LibroController@modificar')->where('libro', '[0-9]+')->name('libro.modificar');
     Route::put('/libros/{libro}',         'LibroController@actualizar')->where('libro', '[0-9]+')->name('libro.actualizar');
     Route::delete('/libros/{libro}',      'LibroController@eliminar')->where('libro', '[0-9]+')->name('libro.eliminar');
     Route::delete('/libros_imagen/{libro}', 'LibroController@eliminar_imagen')->where('libro', '[0-9]+')->name('libro.eliminar_imagen');
+    /*PRESTAMO */
+    Route::get('/prestamos',                        'LibroUsuarioController@index')->name('libroUsuario.index');
+    Route::get('/prestamos/crear',                  'LibroUsuarioController@crear')->name('libroUsuario.crear');
+    Route::post('/prestamos',                       'LibroUsuarioController@guardar')->name('libroUsuario.guardar');
+    // Route::post('/prestamos/{libroUsuario}',        'LibroUsuarioController@ver')->where('libroUsuario', '[0-9]+')->name('libroUsuario.ver');
+    // Route::get('/prestamos/{libroUsuario}/editar',  'LibroUsuarioController@modificar')->where('librousuario', '[0-9]+')->name('libroUsuario.modificar');
+    Route::put('/prestamos/{libroUsuario}',         'LibroUsuarioController@devolver')->where('libroUsuario', '[0-9]+')->name('libroUsuario.devolver');
+    //Route::put('/prestamos/{libroUsuario}',         'LibroUsuarioController@actualizar')->where('libroUsuario', '[0-9]+')->name('libroUsuario.actualizar');
+    //Route::delete('/prestamos/{libroUsuario}',      'LibroUsuarioController@eliminar')->where('libroUsuario', '[0-9]+')->name('libroUsuario.eliminar');
 });
 
 //Auth::routes();

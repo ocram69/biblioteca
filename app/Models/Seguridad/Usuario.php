@@ -3,6 +3,7 @@
 namespace App\Models\Seguridad;
 
 use App\Models\Admin\Rol;
+use App\models\LibroUsuario;
 use PhpParser\Builder\Function_;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -22,13 +23,7 @@ class Usuario extends Authenticatable
     protected $fillable = [
         'usuario', 'email', 'nombre', 'password',
     ];
-    /**
-     * Relacion de un usuario muchos roles
-     */
-    public function roles()
-    {
-        return $this->belongsToMany(Rol::class, 'rol_usuario')->withTimestamps();
-    }
+
     /**
      * Almaceno informacion del rol
      */
@@ -59,5 +54,19 @@ class Usuario extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+    /**
+     * Relacion de un usuario muchos roles
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Rol::class, 'rol_usuario')->withTimestamps();
+    }
+    /**
+     * Relacion de un usuario muchos prestamos
+     */
+    public function pretamos()
+    {
+        return $this->hasMany(LibroUsuario::class);
     }
 }
